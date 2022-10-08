@@ -110,12 +110,43 @@ namespace ArbolesBinarios
 
         private void RecorridoInorden(Nodo nodo, ref string recorrido)
         {
-            throw new NotImplementedException();
+            if (nodo != null)
+            {
+                
+                if (nodo.HijoIzquierdo != null)
+                {
+                    RecorridoInorden(nodo.HijoIzquierdo, ref recorrido);
+                }
+
+                AgregarValor(nodo, ref recorrido);
+
+                if (nodo.HijoDerecho != null)
+                {
+                    RecorridoInorden(nodo.HijoDerecho, ref recorrido);
+                }    
+                
+            }
+
         }
 
         private void RecorridoPosorden(Nodo nodo, ref string recorrido)
         {
-            throw new NotImplementedException();
+            if (nodo != null)
+            {
+
+                if (nodo.HijoIzquierdo != null)
+                {
+                    RecorridoInorden(nodo.HijoIzquierdo, ref recorrido);
+                }
+
+                if (nodo.HijoDerecho != null)
+                {
+                    RecorridoInorden(nodo.HijoDerecho, ref recorrido);
+                }
+
+                AgregarValor(nodo, ref recorrido);
+
+            }
         }
 
         private void RecorridoPreorden(Nodo nodo, ref string recorrido)
@@ -134,7 +165,7 @@ namespace ArbolesBinarios
                 }
 
             }
-
         }
     }
+
 }
